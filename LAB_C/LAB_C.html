@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Map_Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="leaflet-1.7.1/leaflet.css" />
+</head>
+<body>
+  <div class="buttons">
+    <button id="locBtn">My Location</button>
+    <button id="saveBtn">Save Map</button>
+    <button id="shuffleBtn">Shuffle Puzzle</button>
+  </div>
+
+  <div class="grid">
+    <div id="box1" class="box">
+      <div id="map"></div>
+    </div>
+    <div id="box2" class="box">
+      <canvas id="rasterMap"></canvas>
+    </div>
+    <div id="box3" class="box puzzleContainer"></div>
+    <div id="box4" class="box dropTarget"></div>
+  </div>
+
+  <script src="leaflet-1.7.1/leaflet-src.js"></script>
+  <script src="leaflet-1.7.1/leaflet-image.js"></script>
+  <script src="leaflet-1.7.1/leaflet-providers.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
