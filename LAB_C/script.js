@@ -3,14 +3,17 @@ let map = L.map('map').setView([53.430127, 14.564802], 15);
 //L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 20}).addTo(map);
 //L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom: 20}).addTo(map);
 L.tileLayer.provider('Esri.WorldImagery').addTo(map);
-
 const markerLayer= L.layerGroup().addTo(map);
+
+Notification.requestPermission().then(permission => {
+    console.log(permission);
+});
 //Lokalizacja
 document.getElementById("locBtn").addEventListener("click", () => {
-  if (!navigator.geolocation) {
-    alert("No geolocation.");
-    return;
-  }
+    if (!navigator.geolocation) {
+        alert("No geolocation.");
+        return;
+    }
     navigator.geolocation.getCurrentPosition(pos => {
     console.log(pos);
     let lat = pos.coords.latitude;
@@ -84,11 +87,10 @@ document.getElementById("shuffleBtn").addEventListener("click", ()=>{
         placeholder.className = "dropTarget"; 
         placeholder.style.width = pieceWidth + "px";
         placeholder.style.height = pieceHeight + "px";
-        placeholder.style.border = "1px dashed #ccc";
+        placeholder.style.border = "1px dashed orange";
         placeholder.style.display = "inline-block";
         box4.appendChild(placeholder);
 
-        // Obsługa drag & drop
         placeholder.addEventListener("dragover", function(event) {
             event.preventDefault();
         });
@@ -123,7 +125,11 @@ function checkIfSolved(){
         }
       });    
       if (solved) {
-        alert("🎉 Układanka ułożona poprawnie!");
+        if(Notification.permission === "granted"){
+            new Notification("Układanka ułożona poprawnie!");
+        }else{
+            alert("Układanka ułożona poprawnie v2!");
+        }
       }
 }
 //chciałem let solved=false i zmieniać na true ale aplikacja po pierwszym elemencie mi odbijała że jest ułożone
