@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: cursive;
+  font-size: 18px;
+  background: rgba(131, 58, 180, 1);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-weight: bold;
+  color: #0055aa;
+  text-transform: uppercase;
+  text-shadow:
+  1px 1px 0 greenyellow,
+  1px -1px 0 greenyellow;
+}
+
+h2{
+  font:serif;
+  font-weight: bold;
+  color: red;
+  text-transform: uppercase;
+  text-decoration: overline;
+  text-shadow:
+  1px 1px 0 black,
+  1px -1px 0 black;
+}
+
+h3 {
+  color: greenyellow;
+  text-decoration-line: underline;
+  text-decoration-style:wavy;
+  font-style: italic;
+  text-shadow:
+  1px 1px 0 blue,
+  1px -1px 0 blue;
+}
+
+.all {
+  text-align: justify;
+  font-weight: bold;
+  margin:10px;
+  text-shadow:
+  -1px -1px 0 white,
+   1px -1px 0 white,
+  -1px  1px 0 white,
+   1px  1px 0 white;
+}
+
+header {
+  padding: 20px;
+  text-align: left;
+  background: linear-gradient(180deg,rgba(131, 58, 180, 1) 9%, 
+  rgba(253, 29, 29, 1) 46%, rgba(252, 176, 69, 1) 89%);
+}
+
+.content {
+  background: radial-gradient(circle,rgba(131, 58, 180, 1) 10%, 
+  rgba(253, 29, 29, 1) 40%, rgba(252, 176, 69, 1) 80%);
+  display: flex;
+  flex-direction:column-reverse; /* najpierw main, potem sidebar */
+  padding:10px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  background-image: url(img/background1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+main img {
+  width: 70%;
+  height: auto;
+  display:block; /*zmieniam typ z inline czyli jak tekst do block żeby zachowywało się jak box*/
+  margin: 0 auto; /*brak marginesów góra dół i automatyczne boczne*/
+}
+
+.part{
+  flex:1; /*to daje mi równość 2 kolumn w mainie*/
+}
+
+.list{
+  padding:0px;
+  list-style-type: none;
+}
+.list li{
+  background: rgba(14, 216, 48, 0.863);   /* kolor tła boxa */
+  padding: 10px;
+  margin-bottom: 10px;    /* odstęp między boxami */
+  border-radius: 8px; /*zaokrąglenie*/
+}
+/*tutaj chat mi dopowiedział żeby osiągnąć efekt wiersza muszę użyć tego z ul, bo bez 
+nie miało to wpływu na layout strony*/
+.sidebar ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* pozwala na złamanie wiersza, jeśli za mało miejsca */
+  gap: 20px;
+}
+
+/* Intro zajmuje całą szerokość strony*/
+.sidebar .intro {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.items {
+  flex: 1; /* każda kolumna zajmuje równą szerokość */
+  border:3px dashed yellowgreen;
+  padding: 10px;
+}
+
+.items img{
+  max-width: 100%;
+  height:auto;
+}
+
+footer {
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(0deg,rgba(131, 58, 180, 1) 9%, 
+  rgba(253, 29, 29, 1) 46%, rgba(252, 176, 69, 1) 89%);
+  display: flex;
+}
+
+footer img{
+  border:3px dashed yellowgreen;
+}
+
+.footer-box {
+  flex: 1; /*to jest po to żeby kolumny były równej wielkości*/
+  text-align: center;
+}
+
+/* mobilny */
+@media (max-width: 767px) {
+  main{
+    flex-direction: column;
+  }
+
+  .sidebar ul{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer{
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+} /*dzieki tej linijce nie ucieka mi tekst poza ekran, content+padding*/
+
+body {
+    font-family: fantasy;
+    font-size: 20px;
+    /*skorzystałem z generatora gradientów, 223deg chodzi o stopien względem północy
+     a potem podaje kolory oraz tak jakby procent w którym mają go osiągnąć*/
+    background: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);
+    margin: 10px;
+    padding: 0px;
+  }
+
+h1{
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-shadow: 
+    -1px -1px 0 red,
+    1px -1px 0 red;
+}
+
+h2{
+  font-family:serif ;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 
+  -1px -1px 0 pink,
+  1px -1px 0 pink;
+}
+
+h3{ 
+  text-transform:capitalize;
+  text-shadow: 
+  -1px -1px 0 yellow,
+  1px -1px 0 yellow;
+}
+
+  .all{
+    color: black;
+    text-align: center; 
+    text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+       /*to jest do białego obramowania tekstu*/
+  }
+  
+  header {
+    background: repeating-linear-gradient(
+      /*kierunek, kolor, grubość linii, dwa parametry to przestrzen miedzy liniami*/
+    to right,
+    green 0px,
+    green 10px,
+    pink 10px,
+    pink 20px);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border:3px solid blueviolet;
+    margin-bottom: 10px;
+  }
+
+  .content{
+    display:flex;
+    flex-direction: row;  /* flexbox daje mi możliwość manipulowania zawartością
+                          , np ustawienie kierunku boxów i rozmiaru do zdjęć*/
+  }
+
+  .sidebar{
+    width: 30%;
+    padding:10px;
+    border: 3px solid blueviolet;
+    border-radius: 10px;
+  }
+
+  .sidebar ul{
+    list-style: none; 
+    padding-left:0;/*tutaj chat mi podpowiedział że mi ucieka lista na prawo przez domy
+    ślny styl listy i padding 40px;*/ 
+  }
+
+  .sidebar img {
+    width: 100%;
+  } /*to jest żeby obrazki skalowały się tylko do sidebara*/
+
+  main {
+    width: 70%;
+    padding: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main img{
+    width: 50%;
+    height: auto;
+  }
+
+  .list{
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: chartreuse;
+    padding: 10px;
+    list-style-type: square;
+  }
+
+  footer{
+    margin:10px;
+    display:flex;
+    flex-wrap: wrap; /*zawijanie przy mniejszych szerokościach*/
+  }
+
+  .footer-box{
+    flex:1;
+    min-width: 200px;
+    border-radius: 10px;
+    border-top:3px solid blueviolet;
+    border-bottom:3px solid blueviolet;
+    margin-bottom: 10px;
+  }
+  
+  /* --- Styl mobilny (max 767px) --- */
+  @media (max-width: 767px) {
+    .content{
+      display: flex;
+      flex-direction: column;
+      width:100%;
+    }
+
+    .sidebar{
+      width:100%;
+    }
+
+    main{
+      width:100%;
+    }
+
+    footer{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
